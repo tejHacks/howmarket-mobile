@@ -45,3 +45,7 @@ example
 # Supabase keys
 .env
 !.env.example
+
+# Local AI assistant files
+CLAUDE.md
+.claude/
