@@ -12,7 +12,7 @@
  *      reports are, and how tight the spread is.
  *   6. Reporters whose prices land near consensus gain trust; repeat outliers lose it.
  *
- * Pure functions only — the same logic is mirrored server-side in supabase/schema.sql.
+ * Pure functions only — the same logic is mirrored on the server in howmarket-api (app/Services/Consensus.php).
  */
 
 export const WINDOW_DAYS = 14;

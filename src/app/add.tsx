@@ -26,6 +26,7 @@ export default function AddPrice() {
 
   const submit = async () => {
     if (!itemId || !marketId) return;
+    setMessage(null);
     const res = await hm.addReport(itemId, marketId, value);
     if (res === 'limit') return setMessage(`You've reached today's limit of ${DAILY_REPORT_LIMIT} reports. Thank you!`);
     if (res === 'ok') router.back();
@@ -53,7 +54,7 @@ export default function AddPrice() {
       {current ? <Body muted>Others reported about {naira(current.price)} here.</Body> : null}
       {farOff ? <Text style={{ color: '#B45309' }}>That&apos;s very different from what others saw — please double-check the amount and unit.</Text> : null}
       <Button title="Submit price" disabled={!(value > 0) || !itemId || !marketId} onPress={submit} />
-      {message ? <Text style={{ color: c.danger }}>{message}</Text> : null}
+      {message || hm.error ? <Text style={{ color: c.danger }}>{message ?? hm.error}</Text> : null}
       <Body muted style={{ fontSize: 13 }}>Prices are checked against other reports. Accurate reports raise your trust score.</Body>
     </Screen>
   );

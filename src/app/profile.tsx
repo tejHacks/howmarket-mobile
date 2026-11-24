@@ -12,12 +12,13 @@ export default function Profile() {
   return (
     <Screen>
       <H2>{hm.profile.name}</H2>
+      <Body muted>{hm.isDemo ? 'Demo profile on this phone' : `Signed in as ${hm.profile.email}`}</Body>
       <Card>
         <Label>Trust score</Label>
         <Body>
           {hm.profile.trust.toFixed(2)} · {trustPct >= 60 ? 'Trusted reporter' : trustPct >= 40 ? 'Getting started' : 'Low — check your amounts'}
         </Body>
-        <Body muted style={{ fontSize: 13 }}>Grows when your prices match what others see. Reports today: {hm.reportsToday}.</Body>
+        <Body muted style={{ fontSize: 13 }}>Grows when your prices match what others see. Reports today: {hm.reportsToday}.{hm.isDemo ? '' : ' Your score is worked out by the server.'}</Body>
       </Card>
       <Label>Area</Label>
       <Row style={{ flexWrap: 'wrap' }}>

@@ -12,6 +12,7 @@ beforeEach(async () => {
 
 it('sends new users to sign in, then shows prices for their area (demo mode)', async () => {
   await renderRouter(APP, { initialUrl: '/' });
+  await fireEvent.press(await screen.findByText('Try the demo'));
   const name = await screen.findByPlaceholderText('e.g. Tejumade');
   await fireEvent.changeText(name, 'Tolu');
   await fireEvent.press(screen.getByText('Continue'));

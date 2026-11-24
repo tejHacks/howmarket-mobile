@@ -89,6 +89,7 @@ export default function Home() {
           </Pressable>
         ))}
 
+        {hm.error ? <Body muted style={{ fontSize: 13 }}>Showing the last prices saved on this phone. {hm.error}</Body> : null}
         {hm.isDemo ? <Body muted style={{ fontSize: 13 }}>Demo mode · sample prices, not real quotes.</Body> : null}
       </ScrollView>
 
